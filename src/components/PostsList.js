@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 //import firestore from '../Firebase.js';
 import './PostsTableStyle.css';
+import { Link } from 'react-router-dom';
 
 export default function PostsList(){
     
@@ -32,6 +33,7 @@ export default function PostsList(){
             { id: 4, title: 'test', content: 'test' },
           ];
     return (
+        <>
          <h2>Dashboard</h2>
         <h3>Blog Posts</h3>
         <Link to='/add'  className="btn btn-primary btn-block mb-4" >Add post</Link>
@@ -59,7 +61,7 @@ export default function PostsList(){
 
             </tbody>
         </table>
-    </div>
+    </div></>
     )
 
 }
