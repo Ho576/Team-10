@@ -1,0 +1,13 @@
+.mySidebar {
+    height: 90vh;
+  }
+  
+  .mySidebar.closed {
+    margin-left: -225px;
+  }
+
+  .contentt{
+    margin-left: 30px;
+  }
+  
+  
