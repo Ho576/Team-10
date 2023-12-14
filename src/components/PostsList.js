@@ -32,6 +32,9 @@ export default function PostsList(){
             { id: 4, title: 'test', content: 'test' },
           ];
     return (
+         <h2>Dashboard</h2>
+        <h3>Blog Posts</h3>
+        <Link to='/add'  className="btn btn-primary btn-block mb-4" >Add post</Link>
         <div className="posts-table-container">
         <table className='posts-table'>
             <thead>
@@ -49,7 +52,7 @@ export default function PostsList(){
                         <td> {post.content} </td>
                         { <td>
                             <button >Edit</button>
-                            <button >Delete</button> 
+                            <Link to='/edit'  className="btn btn-primary btn-block mb-4" >edit post</Link> 
                         </td> }
                     </tr>
                 ))}
