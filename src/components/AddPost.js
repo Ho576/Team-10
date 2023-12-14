@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function AddPost() {
   return (
@@ -38,9 +39,9 @@ export default function AddPost() {
         >
           Save
         </button>
-        <a href className="btn btn-secondary btn block mb-4">
+        <Link to={'/'} className="btn btn-secondary btn block mb-4">
           Cancel
-        </a>
+        </Link>
       </form>
     </>
   );

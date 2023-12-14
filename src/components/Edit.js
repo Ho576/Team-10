@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const Edit = () =>{
 
 return(
@@ -31,7 +33,7 @@ return(
         >
           Save
         </button>
-        <a href className="btn btn-secondary btn block mb-4">           Cancel         </a></form>
+        <Link  to={'/'} className="btn btn-secondary btn block mb-4">           Cancel         </Link></form>
 </div>
 
 )
