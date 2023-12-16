@@ -1,27 +1,64 @@
+/* Sidebar.css */
+
 .mySidebar {
-  height: 90vh;
+  height: 93vh; 
+  overflow-y: auto; 
 }
 
-.mySidebar.closed {
-  margin-left: -225px;
-}
-
-.contentt{
+.sb-sidenav {
+  height: 100%;
   width: 100%;
 }
 
-@media only screen and (max-width: 700px) {
-  .contentt{
-    margin-left: -80px;
-  }
+.contentt {
+  height: calc(93vh - 56px);
+  overflow-y: auto;
+  padding: 20px; 
+  
 }
-@media only screen and (max-width: 560px) {
-  .contentt{
+.cont{  width: 100%;}
+.myNav{
+  width: 200px;
+}
+@media only screen and (max-width: 3000px) {
+  .mySidebar.closed {
     margin-left: -200px;
   }
 }
-@media only screen and (max-width: 450px) {
-  .contentt{
-    margin-left: -230px;
+@media only screen and (max-width: 1000px) {
+  .mySidebar.closed {
+    margin-left: -225px;
+  }
+  .cont{
+    margin-left: 50px;
   }
 }
+
+@media only screen and (max-width: 990px) {
+  .cont{
+    margin-left: 80px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .cont{
+    margin-left: 100px;
+  }
+}
+@media only screen and (max-width: 560px) {
+  .cont{
+    margin-left: 80px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .mySidebar {
+    margin-left: -225px;
+  }
+  .mySidebar.closed {
+   margin-left: 1px;
+  }
+  .cont{
+    margin-left: 20px;
+  }
+ 
+}
+
