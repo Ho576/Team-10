@@ -1,17 +1,17 @@
-const Navbar = () => {
+const Navbar = ({toggleSidebar} ) => {
   return (
     <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
   
   <a className="navbar-brand ps-3" href="#!">Start Bootstrap</a>
   
-  <button className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 text-white" id="sidebarToggle" href="#!"><i className="bi bi-list" />
+  <button className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 text-white" id="sidebarToggle" href="#!"><i className="bi bi-list" onClick={toggleSidebar} />
 </button>
 
   
   <form className="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
     <div className="input-group">
       <input className="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-      <button className="btn btn-primary" id="btnNavbarSearch" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+      <button className="btn btn-primary" id="btnNavbarSearch" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
   <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
 </svg></button>
     </div>   

@@ -1,19 +1,16 @@
 import React, { useState } from 'react'
 import './Sidebar.css'
 import { Link, Outlet } from 'react-router-dom'
+import Footer from './Footer';
 
-export default function Sidebar() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+export default function Sidebar({isSidebarOpen}) {
+  
 
   return (
     <div id="layoutSidenav" className={`mySidebar ${isSidebarOpen ? 'open' : 'closed'}`} >
-    <div id="layoutSidenav_nav">
+    <div id="layoutSidenav_nav ">
       <nav className="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-        <div className="sb-sidenav-menu">
+        <div className="sb-sidenav-menu myNav">
           <div className="nav">
             <div className="sb-sidenav-menu-heading">Core</div>
             <Link className="nav-link" to={'/'}>
@@ -80,13 +77,18 @@ export default function Sidebar() {
         </div>
       </nav>
     </div>
-    <div className='contentt'>
+   <div className='cont'>
+   <div className='contentt'>
         <Outlet/>
-        <p>footer</p>
+        
     </div>
     
+    <Footer/>
+   </div>
     
-  </div>
+  
+    </div>
+    
 
 
   )

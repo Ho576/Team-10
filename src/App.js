@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import AddPost from './components/AddPost';
@@ -8,13 +8,20 @@ import Sidebar from './components/Sidebar';
 
 
 export default function App() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
+    
     <>
-      <Navbar />
+      <Navbar toggleSidebar={toggleSidebar}  />
       <Routes>
         <Route
           path='/'
-          element={<Sidebar />}
+          element={<Sidebar isSidebarOpen={isSidebarOpen} />}
         >
           <Route index element={<PostsList/>} />
           <Route path='add' element={<AddPost />} />
