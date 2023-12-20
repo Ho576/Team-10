@@ -1,27 +1,26 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import './PostsTableStyle.css';
-import { collection, getDocs,doc,deleteDoc } from 'firebase/firestore';
+import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { Link } from 'react-router-dom';
+
+export default function PostsList({posts, setPosts}) {
 
 export default function PostsList() {
     const [posts, setPosts] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
-            try {
+               try {
                 const querySnapshot = await getDocs(collection(db, 'Blog Posts'));
                 const data = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
                 setPosts(data);
-            } catch (error) {
+               } catch (error) {
                 console.error('Error fetching data:', error.message);
-            }
+               }
         };
-        fetchData();
-    }, [posts]);
-
-   
-    const Delete = async (postId) => {
+          
+         const Delete = async (postId) => {
         try {
           const ref = doc(db, 'Blog Posts', postId);
           await deleteDoc(ref);
@@ -29,8 +28,15 @@ export default function PostsList() {
           console.log('Error deleting post:', error.message);
         }
       };
-      
 
+    useEffect(() => {
+       
+        fetchData();
+        
+    }, [posts]);
+
+    
+   
     return (
         <>
             <h2>Dashboard</h2>

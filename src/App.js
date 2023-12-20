@@ -14,6 +14,7 @@ export default function App() {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const [posts, setPosts] = useState([]);
   return (
     
     <>
@@ -23,9 +24,9 @@ export default function App() {
           path='/'
           element={<Sidebar isSidebarOpen={isSidebarOpen} />}
         >
-          <Route index element={<PostsList/>} />
-          <Route path='add' element={<AddPost />} />
-          <Route path='edit' element={<Edit />} />
+          <Route index element={<PostsList posts ={posts} setPosts={setPosts} />} />
+          <Route path='add' element={<AddPost posts ={posts} />} />
+          <Route path='edit' element={<Edit posts ={posts} />} />
         </Route>
         <Route path='*' element={<h2>User not found</h2>} />
       </Routes>
