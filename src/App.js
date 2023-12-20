@@ -1,5 +1,6 @@
 import React from "react";
+import AddPost from "./components/AddPost";
 
 export default function App() {
-  return <div>App</div>;
+  return <AddPost />;
 }
