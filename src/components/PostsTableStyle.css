@@ -1,0 +1,27 @@
+.psts-table-container{
+    margin:20px;
+}
+
+.posts-table{
+    width:100%;
+    border-collapse: collapse;
+    margin-top:20px;
+}
+
+.posts-table th{
+    border:7px solid #000000;
+    padding:8px;
+    text-align:left;
+    background-color: #f2f2f2f2;
+}
+
+.posts-table td{
+    border:7px solid #000000;
+    padding:8px;
+    text-align:left;
+}
+
+.posts-table  button {
+     background-color: rgb(192, 3, 3);
+     color: whitesmoke;
+}

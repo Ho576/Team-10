@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 
 export default function AddPost({ posts }) {
   const navigate = useNavigate();
@@ -79,9 +79,9 @@ export default function AddPost({ posts }) {
         >
           Save
         </button>
-        <a href className="btn btn-secondary btn block mb-4">
+        <Link to={'/'} className="btn btn-secondary btn block mb-4">
           Cancel
-        </a>
+        </Link>
       </form>
     </>
   );
