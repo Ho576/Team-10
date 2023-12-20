@@ -1,12 +1,12 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import './PostsTableStyle.css';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs,doc,deleteDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { Link } from 'react-router-dom';
 
 export default function PostsList() {
-
+    const [posts, setPosts] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -18,9 +18,18 @@ export default function PostsList() {
             }
         };
         fetchData();
-    }, []);
+    }, [posts]);
 
-    const [posts, setPosts] = useState([]);
+   
+    const Delete = async (postId) => {
+        try {
+          const ref = doc(db, 'Blog Posts', postId);
+          await deleteDoc(ref);
+        } catch (error) {
+          console.log('Error deleting post:', error.message);
+        }
+      };
+      
 
     return (
         <>
@@ -44,7 +53,7 @@ export default function PostsList() {
                                 <td> {post.content} </td>
                                 {<td>
                                     <Link to='/edit' className="btn btn-primary btn-block mb-4 mt-4" >edit post</Link>
-                                    <button className="btn btn-danger">Delete </button>
+                                    <button className="btn btn-danger" onClick={() =>Delete(post.id)}>Delete </button>
                                 </td>}
                             </tr>
                         ))}
