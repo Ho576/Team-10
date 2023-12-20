@@ -1,14 +1,14 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import './PostsTableStyle.css';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { Link } from 'react-router-dom';
 
-export default function PostsList() {
+export default function PostsList({posts, setPosts}) {
 
-    useEffect(() => {
-        const fetchData = async () => {
+     
+   const fetchData = async () => {
             try {
                 const querySnapshot = await getDocs(collection(db, 'Blog Posts'));
                 const data = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
@@ -17,11 +17,23 @@ export default function PostsList() {
                 console.error('Error fetching data:', error.message);
             }
         };
+         const Delete = async (postId) => {
+        try {
+          const ref = doc(db, 'Blog Posts', postId);
+          await deleteDoc(ref);
+        } catch (error) {
+          console.log('Error deleting post:', error.message);
+        }
+      };
+
+    useEffect(() => {
+       
         fetchData();
-    }, []);
+        
+    }, [posts]);
 
-    const [posts, setPosts] = useState([]);
-
+    
+   
     return (
         <>
             <h2>Dashboard</h2>
@@ -44,7 +56,7 @@ export default function PostsList() {
                                 <td> {post.content} </td>
                                 {<td>
                                     <Link to='/edit' className="btn btn-primary btn-block mb-4 mt-4" >edit post</Link>
-                                    <button className="btn btn-danger">Delete </button>
+                                    <button className="btn btn-danger" onClick={() =>Delete(post.id)}>Delete </button>
                                 </td>}
                             </tr>
                         ))}
