@@ -7,9 +7,7 @@ import { Link } from 'react-router-dom';
 
 export default function PostsList({posts, setPosts}) {
 
-export default function PostsList() {
     const [posts, setPosts] = useState([]);
-    useEffect(() => {
         const fetchData = async () => {
                try {
                 const querySnapshot = await getDocs(collection(db, 'Blog Posts'));
@@ -18,7 +16,7 @@ export default function PostsList() {
                } catch (error) {
                 console.error('Error fetching data:', error.message);
                }
-        };
+        }
           
          const Delete = async (postId) => {
         try {
@@ -30,9 +28,7 @@ export default function PostsList() {
       };
 
     useEffect(() => {
-       
         fetchData();
-        
     }, [posts]);
 
     
