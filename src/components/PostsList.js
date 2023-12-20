@@ -7,17 +7,16 @@ import { Link } from 'react-router-dom';
 
 export default function PostsList({posts, setPosts}) {
 
-    const [posts, setPosts] = useState([]);
-        const fetchData = async () => {
-               try {
+     
+   const fetchData = async () => {
+            try {
                 const querySnapshot = await getDocs(collection(db, 'Blog Posts'));
                 const data = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
                 setPosts(data);
-               } catch (error) {
+            } catch (error) {
                 console.error('Error fetching data:', error.message);
-               }
-        }
-          
+            }
+        };
          const Delete = async (postId) => {
         try {
           const ref = doc(db, 'Blog Posts', postId);
