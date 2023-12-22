@@ -41,7 +41,7 @@ export default function PostsList({posts, setPosts}) {
                 <table className='posts-table'>
                     <thead>
                         <tr>
-                            <th> Tittle </th>
+                            <th> Title </th>
                             <th>Content</th>
                             <th>Action</th>
                         </tr>
