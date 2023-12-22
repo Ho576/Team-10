@@ -53,7 +53,7 @@ export default function PostsList({posts, setPosts}) {
                                 <td>{post.title}</td>
                                 <td> {post.content} </td>
                                 {<td>
-                                    <Link to='/edit' className="btn btn-primary btn-block mb-4 mt-4" >edit post</Link>
+                                    <Link to={`/edit/${post.id}`} className="btn btn-primary btn-block mb-4 mt-4" >edit post</Link>
                                     <button className="btn btn-danger m-1" onClick={() =>Delete(post.id)}>Delete </button>
                                 </td>}
                             </tr>
