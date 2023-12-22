@@ -26,7 +26,7 @@ export default function App() {
         >
           <Route index element={<PostsList posts ={posts} setPosts={setPosts} />} />
           <Route path='add' element={<AddPost posts ={posts} />} />
-          <Route path='edit' element={<Edit posts ={posts} />} />
+          <Route path='edit/:postId' element={<Edit posts ={posts} />} />
         </Route>
         <Route path='*' element={<h2>User not found</h2>} />
       </Routes>
