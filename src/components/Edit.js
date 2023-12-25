@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { updateDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, } from "react-router-dom";
+
 
 const Edit = ({ posts }) => {
   const navigate = useNavigate();
