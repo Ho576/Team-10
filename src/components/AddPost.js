@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { useNavigate,Link } from "react-router-dom";
+ 
 
 export default function AddPost({ posts }) {
   const navigate = useNavigate();
