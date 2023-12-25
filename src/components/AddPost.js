@@ -6,25 +6,25 @@ import { useNavigate,Link } from "react-router-dom";
 
 export default function AddPost({ posts }) {
   const navigate = useNavigate();
-  let [error1, SetError1] = useState(false);
-  let [error2, SetError2] = useState(false);
+  let [error1, setError1] = useState(false);
+  let [error2, setError2] = useState(false);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const SpecialCharacters = (str) => {
+  const specialCharacters = (str) => {
     return /[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
   };
   const validation = async () => {
     let i;
-    SetError1(false);
-    SetError2(false);
+    setError1(false);
+    setError2(false);
     for (i = 0; i < posts.length; i++) {
       if (posts[i].title == title) {
-        SetError1(true);
+        setError1(true);
         return;
       }
     }
-    if (SpecialCharacters(title)) {
-      SetError2(true);
+    if (specialCharacters(title)) {
+      setError2(true);
       return;
     }
     await addDoc(collection(db, "Blog Posts"), { title, content });
