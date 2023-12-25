@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { updateDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
-import { useNavigate, useParams, } from "react-router-dom";
+import { useNavigate, useParams,Link } from "react-router-dom";
 
 
 const Edit = ({ posts }) => {
@@ -14,25 +14,25 @@ const Edit = ({ posts }) => {
     }
   }
 
-  let [error1, SetError1] = useState(false);
-  let [error2, SetError2] = useState(false);
+  let [error1, setError1] = useState(false);
+  let [error2, setError2] = useState(false);
   let [title, setTitle] = useState(posts[i]?.title);
   let [content, setContent] = useState(posts[i]?.content);
-  const SpecialCharacters = (str) => {
+  const specialCharacters = (str) => {
     return /[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
   };
   const update = async () => {
     let j;
-    SetError1(false);
-    SetError2(false);
+    setError1(false);
+    setError2(false);
     for (j = 0; j < posts.length && j != i; j++) {
       if (posts[j].title == title) {
-        SetError1(true);
+        setError1(true);
         return;
       }
     }
-    if (SpecialCharacters(title)) {
-      SetError2(true);
+    if (specialCharacters(title)) {
+      setError2(true);
       return;
     }
 
@@ -95,10 +95,9 @@ const Edit = ({ posts }) => {
         >
           Save
         </button>
-        <a href className="btn btn-secondary btn block mb-4">
-          {" "}
-          Cancel{" "}
-        </a>
+         <Link to={'/'} className="btn btn-secondary btn block mb-4">
+          Cancel
+        </Link>
       </form>
     </div>
   );
